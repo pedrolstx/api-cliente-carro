@@ -14,7 +14,7 @@ endpoints.get('/tipo', async (req, resp) => {
     }
 });
 
-endpoints.get('/carro', async (req, resp) => {
+endpoints.get('/veiculo', async (req, resp) => {
     try{
         let r = await ListarTodosCarros()
         resp.send(r)
@@ -25,7 +25,7 @@ endpoints.get('/carro', async (req, resp) => {
     }
 });
 
-endpoints.post('/carro', async (req, resp) => {
+endpoints.post('/veiculo', async (req, resp) => {
     try{
 
         let carro = req.body
@@ -47,7 +47,7 @@ endpoints.post('/carro', async (req, resp) => {
     }
 } )
 
-endpoints.delete('/carro/:id', async (req, resp) => {
+endpoints.delete('/veiculo/:id', async (req, resp) => {
     try{
         let id = req.params.id;
         let r = await DeletarCarro(id);
@@ -59,7 +59,7 @@ endpoints.delete('/carro/:id', async (req, resp) => {
     }
 })
 
-endpoints.put('/carro/:id', async (req, resp) => {
+endpoints.put('/veiculo/:id', async (req, resp) => {
     try{
         let id = req.params.id;
         let carro = req.body
