@@ -37,9 +37,7 @@ endpoints.post('/carro', async (req, resp) => {
         if (isNaN(carro.ano)) {
             throw new Error('Ano precisa ser um número.')
         }
-
-
-
+        
         let r = await InserirCarro(carro)
         resp.send(r)
     }

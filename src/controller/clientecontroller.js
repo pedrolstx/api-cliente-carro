@@ -14,15 +14,19 @@ endpoints.get('/cliente', async (req, resp) => {
   })
 
 endpoints.post('/cliente', async (req, resp) => {
-    try {
-      let cliente = req.body;
-      let r = await inserir(cliente);
-      resp.send(r);
-    }
-    catch (err) {
-      resp.status(400).send;
-    }
-  })
+  try{
+
+    let cliente = req.body
+    
+    let r = await inserir(cliente)
+    resp.send(r)
+}
+
+catch (err){
+    resp.status(500).send({ erro: err.message })
+}
+} )
+
 
   endpoints.put('/cliente/:id', async (req, resp) => {
     try {
@@ -44,7 +48,7 @@ endpoints.post('/cliente', async (req, resp) => {
       resp.send();
     }
     catch (err) {
-      resp.status(500).send({ erro: 'Ocorreu um erro!' });
+      resp.status(500).send({ erro: err.message });
     }
   })
 
