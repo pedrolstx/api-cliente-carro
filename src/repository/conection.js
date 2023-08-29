@@ -10,6 +10,6 @@ const conexao = await mysql.createConnection({
     
 })
 
-console.log('BD conectado')
+console.log('BD conectado com sucesso!')
 
 export {conexao};

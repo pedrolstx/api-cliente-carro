@@ -21,6 +21,7 @@ export async function inserir(cliente){
         cliente.telefone,
         cliente.cpf,
         cliente.cnh
+
     ])
 
     cliente.id = info.insertID;

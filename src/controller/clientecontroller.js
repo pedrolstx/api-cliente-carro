@@ -20,7 +20,7 @@ endpoints.post('/cliente', async (req, resp) => {
       resp.send(r);
     }
     catch (err) {
-      resp.status(500).send({ erro: 'Ocorreu um erro!' });
+      resp.status(400).send;
     }
   })
 
@@ -48,9 +48,4 @@ endpoints.post('/cliente', async (req, resp) => {
     }
   })
 
-  export default endpoints
-
-
-
-
-
+  export default endpoints;
