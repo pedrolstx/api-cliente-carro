@@ -1,7 +1,5 @@
 import { conexao } from "./conection.js";
 
-
-
 export async function InserirCarro(carro){
     let comando = `insert into tb_carro(nm_modelo, nr_ano, nm_fabricante, ds_placa, id_tipo_carro)
                                  values(?, ?, ?, ?, ?);`
@@ -31,14 +29,10 @@ export async function ListarTodosCarros(){
     return dados;
 }
 
-
-
-
 export async function DeletarCarro(id){
     let comando = `delete from tb_carro where id_carro = ?`
     let [info] = await conexao.query(comando, [id])
-    let linha = info.affectedRows
-
+    let linha = info.affectedRow;
     return linha
 }
 
@@ -59,9 +53,9 @@ export async function alterar(id, carro){
     ]
         )
 
-        let linha = info.affectedRows
+        let linha = info.affectedRows;
 
-        return linha
+        return linha;
 
 }
 
