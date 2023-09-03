@@ -29,6 +29,16 @@ export async function ListarTodosCarros(){
     return dados;
 }
 
+export async function ListarTodos(){
+    let comando = `select * from tb_carro
+                    inner join tb_tipo_carro
+                     on tb_tipo_carro.id_tipo_carro = tb_carro.id_tipo_carro
+                     order by nm_modelo
+    `
+    let [dados] = await conexao.query(comando);
+    return dados;
+}
+
 export async function DeletarCarro(id){
     let comando = `delete from tb_carro where id_carro = ?`
     let [info] = await conexao.query(comando, [id])
@@ -58,4 +68,5 @@ export async function alterar(id, carro){
         return linha;
 
 }
+
 

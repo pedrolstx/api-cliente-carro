@@ -12,7 +12,7 @@ export async function Listartodos(){
 
 export async function inserir(cliente){
     let comando = `
-        insert into tb_cliente(nm_cliente, ds_email, nr_telefone, ds_cpf, ds_cnh)
+        insert into tb_cliente(nm_cliente, ds_email, ds_telefone, ds_cpf, ds_cnh)
         values(?, ?, ?, ?, ?);
     `
     let [info] = await conexao.query(comando, [
@@ -43,7 +43,7 @@ export async function alterar(id, cliente){
         update tb_cliente 
         set nm_cliente = ?,
         ds_email = ?,
-        nr_telefone = ?,
+        ds_telefone = ?,
         ds_cpf = ?,
         ds_cnh = ?
         where id_cliente = ?

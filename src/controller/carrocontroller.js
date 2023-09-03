@@ -1,4 +1,4 @@
-import { ListarTodosTipos, ListarTodosCarros, InserirCarro, DeletarCarro, alterar } from "../repository/carrorepository.js";
+import { ListarTodosTipos, ListarTodosCarros, InserirCarro, DeletarCarro, alterar, ListarTodos } from "../repository/carrorepository.js";
 import { Router } from "express";
 
 const endpoints = Router();
@@ -17,6 +17,17 @@ endpoints.get('/tipo', async (req, resp) => {
 endpoints.get('/veiculo', async (req, resp) => {
     try{
         let r = await ListarTodosCarros()
+        resp.send(r)
+    }
+
+    catch (err){
+        resp.status(500).send({ erro: 'Ocorreu um erro!'})
+    }
+});
+
+endpoints.get('/veiculo/tudo', async (req, resp) => {
+    try{
+        let r = await ListarTodos()
         resp.send(r)
     }
 
